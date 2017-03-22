@@ -1,0 +1,6 @@
+#!/usr/bin/env ruby
+
+require "kodi_dedup"
+require 'pp'
+
+KodiDedup::Cli.start
