@@ -14,7 +14,7 @@ require "kodi_dedup/version"
 
 module KodiDedup
   def self.client
-    @client ||= Kodi::Client.new('http://kodi:kodi@192.168.1.149:8080/jsonrpc')
+    @client ||= Kodi::Client.new(config.url)
   end
 
   def self.shows

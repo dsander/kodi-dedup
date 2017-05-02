@@ -5,7 +5,7 @@ module KodiDedup
     def_delegators :@mediainfo, :width, :height, :format
     attr_reader :filename
 
-    FORMATS = ['AVC', 'HEVC']
+    FORMATS = ['MPEG-4 Visual', 'AVC', 'HEVC']
 
     def initialize(filename, mediainfo: Mediainfo)
       @filename  = filename
