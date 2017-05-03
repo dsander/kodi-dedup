@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dominik Sander"]
   spec.email         = ["git@dsander.de"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{ Write a longer description or delete this line.}
+  spec.summary       = %q{CLI application to locate and delete duplicate Episodes in Kodi}
+  spec.description   = %q{CLI application to locate and delete duplicate Episodes in Kodi}
   spec.homepage      = "https://github.com/dsander/kodi-dedup"
   spec.license       = "MIT"
 
@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency 'mediainfo', '~> 0.7'
-  spec.add_runtime_dependency 'thor'
+  spec.add_runtime_dependency 'thor', '~> 0.19'
   spec.add_runtime_dependency 'dsander-kodi', '~> 0.2'
   spec.add_development_dependency "bundler", "~> 1.13"
   spec.add_development_dependency "rake", "~> 10.0"
