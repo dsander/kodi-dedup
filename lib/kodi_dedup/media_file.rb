@@ -1,11 +1,9 @@
 module KodiDedup
   class MediaFile
     include Comparable
-    extend Forwardable
-    def_delegators :@mediainfo, :width, :height, :format
-    attr_reader :filename
+    attr_reader :filename, :mediainfo
 
-    FORMATS = ['MPEG-4 Visual', 'AVC', 'HEVC']
+    FORMATS = ['unknown', 'MPEG-4 Visual', 'AVC', 'HEVC']
 
     def initialize(filename, mediainfo: Mediainfo)
       @filename  = filename
@@ -29,11 +27,31 @@ module KodiDedup
     end
 
     def size
-      (@mediainfo.size / (1024*1024.0)).to_i
+      (mediainfo.size / (1024*1024.0)).to_i
     end
 
     def resolution
       width * height
+    rescue ::Mediainfo::StreamProxy::NoStreamsForProxyError
+      0
+    end
+
+    def width
+      mediainfo.width
+    rescue ::Mediainfo::StreamProxy::NoStreamsForProxyError
+      0
+    end
+
+    def height
+      mediainfo.height
+    rescue ::Mediainfo::StreamProxy::NoStreamsForProxyError
+      0
+    end
+
+    def format
+      mediainfo.format
+    rescue ::Mediainfo::StreamProxy::NoStreamsForProxyError
+        'unknown'
     end
 
     def basename
