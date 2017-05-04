@@ -20,6 +20,52 @@ module KodiDedup
     end
   end
 
+  class Movies < Array
+    def initialize(movies)
+      super(movies.map { |m| Movie.wrap(m)}.select { |m| m.exists? })
+    end
+
+    def grouped
+      group_by { |m| m.label }.values.select { |movies| movies.length > 1 }.map { |movies| Movies.new(movies) }
+    end
+
+    def unplayed
+      select { |e| e.playcount == 0 }
+    end
+
+    def total_playcount
+      sum { |e| e.playcount }
+    end
+  end
+
+  class Movie
+    def initialize(data)
+      @data = data
+      @data['file'] = @data['file'].gsub(KodiDedup.config.replace, KodiDedup.config.with)
+    end
+
+    def method_missing(method, *args)
+      return @data[method.to_s] if @data[method.to_s]
+      super(method, args)
+    end
+
+    def mark_as_played!
+      KodiDedup.client.video_library.SetMovieDetails(movieid: movieid, playcount: 1, lastplayed: Time.now)
+    end
+
+    def exists?
+      File.exists?(file)
+    end
+
+    def self.wrap(e)
+      if e.is_a?(Movie)
+        e
+      else
+        Movie.new(e)
+      end
+    end
+  end
+
   class Episodes < Array
     def initialize(episodes)
       super(episodes.map { |e| Episode.wrap(e) }.select { |e| e.exists? })

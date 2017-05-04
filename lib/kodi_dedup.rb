@@ -6,6 +6,7 @@ require 'thor'
 require 'kodi_dedup/classes'
 require 'kodi_dedup/cli'
 require 'kodi_dedup/cli/episodes'
+require 'kodi_dedup/cli/movies'
 require 'kodi_dedup/config'
 require 'kodi_dedup/deduplicator'
 require "kodi_dedup/media_file"
@@ -25,6 +26,10 @@ module KodiDedup
     episodes = KodiDedup.client.video_library.GetEpisodes(tvshowid: show_id, properties: [:season, :episode, :file, :lastplayed, :playcount])['episodes']
     return [] unless episodes
     Episodes.new(episodes)
+  end
+
+  def self.movies
+    Movies.new(KodiDedup.client.video_library.GetMovies(properties: [:file, :title, :playcount])['movies'])
   end
 
   def self.config!(options)
