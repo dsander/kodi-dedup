@@ -1,0 +1,17 @@
+{
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "limits": {
+      "end": 238,
+      "start": 0,
+      "total": 238
+    },
+    "tvshows": [
+      {
+        "label": "The Big Bang Theory",
+        "tvshowid": 141
+      }
+    ]
+  }
+}

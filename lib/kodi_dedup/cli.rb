@@ -6,7 +6,7 @@ module KodiDedup
     method_option :replace, type: :hash, desc: "Replace 'key' with 'value' in the file paths returned by Kodi"
     def episodes
       KodiDedup.config!(options)
-      KodiDedup::Cli::Episodes.new
+      KodiDedup::Cli::Episodes.new.perform
     end
 
     desc "movies", "Clean up duplicate movies in your Kodi library"
@@ -15,7 +15,7 @@ module KodiDedup
     method_option :replace, type: :hash, desc: "Replace 'key' with 'value' in the file paths returned by Kodi"
     def movies
       KodiDedup.config!(options)
-      KodiDedup::Cli::Movies.new
+      KodiDedup::Cli::Movies.new.perform
     end
   end
 end

@@ -1,7 +1,7 @@
 module KodiDedup
   class Cli
     class Movies
-      def initialize
+      def perform
         shell.say 'Dry running, call with --perform to change perform the deduplication', :green unless KodiDedup.config.perform
 
         shell.say 'Locating duplicate movies ...'
@@ -21,7 +21,7 @@ module KodiDedup
           dedup.entries do |movies|
             shell.say "  found #{movies.length} duplicate file(s):"
             movies.each_with_index do |m, i|
-              shell.say "  #{i} #{m.basename} (#{m.format}@#{m.width}x#{m.height} #{m.size}MB)"
+              shell.say "  #{i} #{m.basename} (#{m})"
             end
             next unless KodiDedup.config.perform
 

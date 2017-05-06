@@ -1,0 +1,40 @@
+{
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "episodes": [
+      {
+        "episode": 19,
+        "episodeid": 3200,
+        "file": "/media/Series/The Big Bang Theory/Season 06/The.Big.Bang.Theory.s06e19.The.Closet.Reconfiguration.mkv",
+        "label": "6x19. The Closet Reconfiguration",
+        "lastplayed": "2013-04-10 00:47:51",
+        "playcount": 1,
+        "season": 6
+      },
+      {
+        "episode": 19,
+        "episodeid": 3201,
+        "file": "/media/Series/The Big Bang Theory/Season 06/The.Big.Bang.Theory.s06e19.The.Closet.Reconfiguration-2.mkv",
+        "label": "6x19. The Closet Reconfiguration",
+        "lastplayed": "2013-04-10 00:47:51",
+        "playcount": 0,
+        "season": 6
+      },
+      {
+        "episode": 20,
+        "episodeid": 3201,
+        "file": "/media/Series/The Big Bang Theory/Season 06/The.Big.Bang.Theory.s06e20.Something.mkv",
+        "label": "6x20. Something",
+        "lastplayed": "2013-04-10 00:47:51",
+        "playcount": 0,
+        "season": 6
+      }
+    ],
+    "limits": {
+      "end": 100,
+      "start": 0,
+      "total": 100
+    }
+  }
+}

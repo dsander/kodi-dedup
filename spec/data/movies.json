@@ -1,0 +1,34 @@
+{
+  "id": "1",
+  "jsonrpc": "2.0",
+  "result": {
+    "limits": {
+      "end": 487,
+      "start": 0,
+      "total": 487
+    },
+    "movies": [
+      {
+        "file": "/media/Movies/Elephants Dream/Elephants Dream.mkv",
+        "label": "Elephants Dream",
+        "movieid": 1,
+        "playcount": 0,
+        "title": "Elephants Dream"
+      },
+      {
+        "file": "/media/Movies/Elephants Dream/Elephants Dream.avi",
+        "label": "Elephants Dream",
+        "movieid": 2,
+        "playcount": 1,
+        "title": "Elephants Dream"
+      },
+      {
+        "file": "/media/Movies/Ants/movie.avi",
+        "label": "Ants Dream",
+        "movieid": 2,
+        "playcount": 2,
+        "title": "Ants Dream"
+      }
+    ]
+  }
+}

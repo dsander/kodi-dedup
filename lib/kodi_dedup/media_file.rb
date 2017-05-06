@@ -5,9 +5,9 @@ module KodiDedup
 
     FORMATS = ['unknown', 'MPEG-4 Visual', 'AVC', 'HEVC']
 
-    def initialize(filename, mediainfo: Mediainfo)
+    def initialize(filename)
       @filename  = filename
-      @mediainfo = mediainfo.new(filename: filename)
+      @mediainfo = KodiDedup.config.mediainfo.new(filename: filename)
     end
 
     def <=>(other)
@@ -32,8 +32,6 @@ module KodiDedup
 
     def resolution
       width * height
-    rescue ::Mediainfo::StreamProxy::NoStreamsForProxyError
-      0
     end
 
     def width
@@ -51,7 +49,7 @@ module KodiDedup
     def format
       mediainfo.format
     rescue ::Mediainfo::StreamProxy::NoStreamsForProxyError
-        'unknown'
+      'unknown'
     end
 
     def basename
@@ -62,8 +60,8 @@ module KodiDedup
       FORMATS.index(format)
     end
 
-    def inspect
-      "#<KodiDedup::MediaFile:#{__id__} @resolution='#{width}x#{height}', @format='#{format}' @size=#{size}>"
+    def to_s
+      "#{basename} (#{format}@#{width}x#{height} #{size}MB)"
     end
   end
 end
