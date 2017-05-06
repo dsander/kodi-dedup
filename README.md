@@ -4,7 +4,7 @@
 
 ## Requirements
 
-* Ruby 2.1+
+* Ruby 2.2+
 
 ## Installation
 
