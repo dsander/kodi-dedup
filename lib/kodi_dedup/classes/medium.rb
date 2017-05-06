@@ -2,7 +2,7 @@ module KodiDedup
   class Medium
     def initialize(data)
       @data = data
-      @data['file'] = @data['file'].gsub(KodiDedup.config.replace, KodiDedup.config.with)
+      @data['file'] = @data['file'].gsub(KodiDedup.config.replace, KodiDedup.config.with) if KodiDedup.config.replace
     end
 
     def method_missing(method, *args)
