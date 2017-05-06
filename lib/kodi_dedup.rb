@@ -5,6 +5,7 @@ require 'thor'
 
 require 'kodi_dedup/classes'
 require 'kodi_dedup/cli'
+require 'kodi_dedup/cli/base'
 require 'kodi_dedup/cli/episodes'
 require 'kodi_dedup/cli/movies'
 require 'kodi_dedup/config'
