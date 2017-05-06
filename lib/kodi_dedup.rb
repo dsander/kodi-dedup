@@ -3,6 +3,8 @@ require 'kodi'
 require 'mediainfo'
 require 'thor'
 
+require 'kodi_dedup/classes/media'
+require 'kodi_dedup/classes/medium'
 require 'kodi_dedup/classes/episode'
 require 'kodi_dedup/classes/episodes'
 require 'kodi_dedup/classes/movie'
