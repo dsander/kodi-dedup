@@ -3,7 +3,7 @@ module KodiDedup
     include Comparable
     attr_reader :filename, :mediainfo
 
-    FORMATS = ['unknown', 'MPEG-4 Visual', 'AVC', 'HEVC']
+    FORMATS = ['unknown', 'MPEG-4 Visual', 'AVC', 'HEVC'].freeze
 
     def initialize(filename)
       @filename  = filename
@@ -27,7 +27,7 @@ module KodiDedup
     end
 
     def size
-      (mediainfo.size / (1024*1024.0)).to_i
+      (mediainfo.size / (1024 * 1024.0)).to_i
     end
 
     def resolution

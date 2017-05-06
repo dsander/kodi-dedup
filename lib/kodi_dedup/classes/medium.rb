@@ -6,8 +6,11 @@ module KodiDedup
     end
 
     def method_missing(method, *args)
-      return @data[method.to_s] if @data[method.to_s]
-      super(method, args)
+      @data[method.to_s] || super(method, args)
+    end
+
+    def respond_to_missing?(method, *)
+      @data[method.to_s].presence || super
     end
 
     def mark_as_played!
@@ -22,7 +25,7 @@ module KodiDedup
       if e.is_a?(self)
         e
       else
-        self.new(e)
+        new(e)
       end
     end
   end

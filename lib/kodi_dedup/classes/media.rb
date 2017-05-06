@@ -2,10 +2,10 @@ module KodiDedup
   class Media < Array
     attr_reader :singular_class, :group_by_proc
 
-    def initialize(media:, singular_class:, group_by_proc: )
+    def initialize(media:, singular_class:, group_by_proc:)
       @singular_class = singular_class
       @group_by_proc = group_by_proc
-      super(media.map { |m| singular_class.wrap(m) }.select { |m| m.exists? })
+      super(media.map { |m| singular_class.wrap(m) }.select(&:exists?))
     end
 
     def grouped
@@ -13,11 +13,11 @@ module KodiDedup
     end
 
     def unplayed
-      select { |e| e.playcount == 0 }
+      select { |e| e.playcount.zero? }
     end
 
     def total_playcount
-      sum { |e| e.playcount }
+      sum(&:playcount)
     end
   end
 end

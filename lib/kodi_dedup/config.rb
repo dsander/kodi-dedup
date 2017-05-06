@@ -8,7 +8,7 @@ module KodiDedup
         @replace = options['replace'].keys.first
         @with    = options['replace'].values.first
       end
-      @url     = options['url']
+      @url = options['url']
       @mediainfo = options[:mediainfo] || KodiDedup::Mediainfo
     end
   end

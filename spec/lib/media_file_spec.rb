@@ -44,6 +44,5 @@ describe KodiDedup::MediaFile do
     it 'returns unknown for the format' do
       expect(mf.format).to eq('unknown')
     end
-
   end
 end

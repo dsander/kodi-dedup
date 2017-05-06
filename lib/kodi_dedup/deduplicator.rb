@@ -15,11 +15,11 @@ module KodiDedup
     end
 
     def deduplicate_playcounts?
-      subject.total_playcount > 0
+      subject.total_playcount.positive?
     end
 
     def deduplicate_entries?
-      subject.length > 0
+      !subject.empty?
     end
 
     def playcounts

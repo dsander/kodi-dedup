@@ -8,7 +8,6 @@ describe KodiDedup::Cli::Movies do
     stub_request(:post, "http://localhost/").
       with(body: "{\"method\":\"VideoLibrary.GetMovies\",\"params\":{\"properties\":[\"file\",\"title\",\"playcount\"]},\"jsonrpc\":\"2.0\",\"id\":\"1\"}").
       to_return(status: 200, body: File.read("spec/data/#{file}.json"))
-
   end
   it 'dry runs the deduplication' do
     stub_requests('movies')

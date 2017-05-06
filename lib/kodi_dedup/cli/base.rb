@@ -14,7 +14,7 @@ module KodiDedup
           end
           next unless KodiDedup.config.perform
 
-          keep = shell.ask('Which file do you want to keep?', default: '0', limited_to: entries.length.times.map(&:to_s)).to_i
+          keep = shell.ask('Which file do you want to keep?', default: '0', limited_to: Array.new(entries.length, &:to_s)).to_i
           entries.each_with_index do |m, i|
             next if i == keep
             FileUtils.rm(m.filename)

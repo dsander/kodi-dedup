@@ -31,13 +31,13 @@ module KodiDedup
   end
 
   def self.episodes(show_id)
-    episodes = KodiDedup.client.video_library.GetEpisodes(tvshowid: show_id, properties: [:season, :episode, :file, :lastplayed, :playcount])['episodes']
+    episodes = KodiDedup.client.video_library.GetEpisodes(tvshowid: show_id, properties: %i[season episode file lastplayed playcount])['episodes']
     return [] unless episodes
     Episodes.new(episodes)
   end
 
   def self.movies
-    Movies.new(KodiDedup.client.video_library.GetMovies(properties: [:file, :title, :playcount])['movies'])
+    Movies.new(KodiDedup.client.video_library.GetMovies(properties: %i[file title playcount])['movies'])
   end
 
   def self.config!(options)

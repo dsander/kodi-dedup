@@ -9,8 +9,11 @@ module KodiDedup
     end
 
     def method_missing(method, *args)
-      return @data[method.to_s] if @data[method.to_s]
-      super(method, args)
+      @data[method.to_s].presence || super(method, args)
+    end
+
+    def respond_to_missing?(method, *)
+      @data[method.to_s].presence || super
     end
   end
 end

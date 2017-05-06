@@ -12,7 +12,7 @@ module KodiDedup
           dedup = Deduplicator.new(movies)
 
           dedup.preable do
-            shell.say "#{movie.label}", :yellow
+            shell.say movie.label.to_s, :yellow
           end
 
           deduplicate!(dedup)
