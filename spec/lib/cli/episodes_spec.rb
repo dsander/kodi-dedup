@@ -15,7 +15,7 @@ describe KodiDedup::Cli::Episodes do
 
   it 'dry runs the deduplication' do
     stub_requests('episodes')
-    allow(File).to receive(:exists?).and_return(true)
+    allow(File).to receive(:exist?).and_return(true)
     KodiDedup.config!('perform' => false, 'url' => 'http://localhost', 'replace' => {'' => ''}, mediainfo: FullHd265)
     cli = KodiDedup::Cli::Episodes.new
     allow(cli).to receive_message_chain(:shell, :say).with(/Dry running/, any_args)
@@ -33,7 +33,7 @@ describe KodiDedup::Cli::Episodes do
     stub_request(:post, "http://localhost/").
       with(body: /VideoLibrary.SetEpisodeDetails/).
       to_return(status: 200, body: "{}", headers: {})
-    allow(File).to receive(:exists?).and_return(true)
+    allow(File).to receive(:exist?).and_return(true)
     KodiDedup.config!('perform' => true, 'url' => 'http://localhost', 'replace' => {'' => ''}, mediainfo: FullHd265)
     cli = KodiDedup::Cli::Episodes.new
     allow(cli).to receive_message_chain(:shell, :say).with(any_args)

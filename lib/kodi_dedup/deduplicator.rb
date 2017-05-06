@@ -6,7 +6,7 @@ module KodiDedup
       @subject = subject
     end
 
-    def preable(&blk)
+    def preable
       yield if deduplication_required?
     end
 
@@ -22,14 +22,14 @@ module KodiDedup
       subject.length > 0
     end
 
-    def playcounts(&blk)
+    def playcounts
       return unless deduplicate_playcounts?
       subject.unplayed.each do |object|
         yield object
       end
     end
 
-    def entries(&blk)
+    def entries
       return unless deduplicate_entries?
       yield(subject.map do |e|
         KodiDedup::MediaFile.new e.file
