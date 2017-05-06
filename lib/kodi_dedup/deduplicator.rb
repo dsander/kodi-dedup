@@ -15,7 +15,7 @@ module KodiDedup
     end
 
     def deduplicate_playcounts?
-      subject.total_playcount.positive?
+      subject.total_playcount > 0
     end
 
     def deduplicate_entries?
