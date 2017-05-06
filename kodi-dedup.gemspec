@@ -9,16 +9,14 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Dominik Sander"]
   spec.email         = ["git@dsander.de"]
 
-  spec.summary       = %q{CLI application to locate and delete duplicate Episodes in Kodi}
-  spec.description   = %q{CLI application to locate and delete duplicate Episodes in Kodi}
+  spec.summary       = %q{CLI application to locate and delete duplicate media in Kodi}
   spec.homepage      = "https://github.com/dsander/kodi-dedup"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0").reject do |f|
-    f.match(%r{^(test|spec|features)/})
-  end
+  spec.files         = Dir['LICENSE.txt', 'lib/**/*', 'bin/*']
   spec.bindir        = "bin"
-  spec.executables   = spec.files.grep(%r{^bin/}) { |f| File.basename(f) }
+  spec.executables   = Dir['bin/*'].map { |p| File.basename(p) }
+  spec.test_files    = Dir['spec/**/*']
   spec.require_paths = ["lib"]
 
   spec.add_runtime_dependency 'mediainfo', '~> 0.7'
