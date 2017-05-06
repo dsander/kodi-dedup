@@ -1,28 +1,48 @@
-# Kodi::Dedup
+# kodi-dedup
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/kodi/dedup`. To experiment with that code, run `bin/console` for an interactive prompt.
+`kodi-dedup` finds duplicate show episodes and movies in your Kodi library. It unifies the playcount and offers to delete the duplicates only keeping the file with the best quality.
 
-TODO: Delete this and the text above, and describe your gem
+## Requirements
+
+* Ruby 2.1+
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'kodi-dedup'
 ```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install kodi-dedup
+gem install kodi-dedup
+```
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+$ kodi-dedup
+Commands:
+  kodi-dedup episodes --url=URL  # Clean up duplicate show episodes in your Kodi library
+  kodi-dedup help [COMMAND]      # Describe available commands or one specific command
+  kodi-dedup movies --url=URL    # Clean up duplicate movies in your Kodi library
+```
+
+```
+$ kodi-dedup help episodes
+Usage:
+  kodi-dedup episodes --url=URL
+
+Options:
+  --url=URL                    # URI string to the Kodi JSON API endpoint (http://kodi:kodi@localhost:8080/jsonrpc)
+  [--perform], [--no-perform]  # Actually perform the actions
+  [--replace=key:value]        # Replace 'key' with 'value' in the file paths returned by Kodi
+```
+
+```
+$kodi-dedup help movies
+Usage:
+  kodi-dedup movies --url=URL
+
+Options:
+  --url=URL                    # URI string to the Kodi JSON API endpoint (http://kodi:kodi@localhost:8080/jsonrpc)
+  [--perform], [--no-perform]  # Actually perform the actions
+  [--replace=key:value]        # Replace 'key' with 'value' in the file paths returned by Kodi
+```
 
 ## Development
 
@@ -32,7 +52,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/kodi-dedup. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/dsander/kodi-dedup. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 
 ## License

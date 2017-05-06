@@ -13,9 +13,9 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://github.com/dsander/kodi-dedup"
   spec.license       = "MIT"
 
-  spec.files         = Dir['LICENSE.txt', 'lib/**/*', 'bin/*']
+  spec.files         = Dir['CHANGELOG.md', 'LICENSE.txt', 'lib/**/*', 'bin/*']
   spec.bindir        = "bin"
-  spec.executables   = Dir['bin/*'].map { |p| File.basename(p) }
+  spec.executables   = 'kodi-dedup'
   spec.test_files    = Dir['spec/**/*']
   spec.require_paths = ["lib"]
 
